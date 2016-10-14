@@ -114,6 +114,7 @@
     <ClCompile Include="Reciever.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Logic.h" />
     <ClInclude Include="Reciever.h" />
     <ClInclude Include="Statement.h" />
   </ItemGroup>

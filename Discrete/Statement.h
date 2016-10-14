@@ -3,8 +3,9 @@
 #include "string"
 #include "vector"
 
-
 struct Statement{
+	
+
 
 	std::string info;
 	std::vector<char> variables;
