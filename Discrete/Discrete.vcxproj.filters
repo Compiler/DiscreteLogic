@@ -26,5 +26,8 @@
     <ClInclude Include="Reciever.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Statement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
