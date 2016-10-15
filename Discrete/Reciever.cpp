@@ -22,17 +22,26 @@ void Reciever::decipher(){
 	while(pos != std::string::npos){
 		if(statement.info[pos] == '^'/*Logic::and*/){
 			std::cout << "Found ^ operator\n";
-			statement.info = statement.info.substr(pos+1);
+			if(pos + 1 < statement.info.length())
+				statement.info = statement.info.substr(pos + 1);
+			else
+				break;
 			pos = statement.info.find_first_of(searchString);
 		}
 		if(statement.info[pos] == 'v' /*Logic::or*/){
 			std::cout << "Found v operator\n";
-			statement.info = statement.info.substr(pos+1);
+			if(pos + 1 < statement.info.length())
+				statement.info = statement.info.substr(pos + 1);
+			else
+				break;
 			pos = statement.info.find_first_of(searchString);
 		}
 		if(statement.info[pos] == '-'/*Logic::conditional*/){
 			std::cout << "Found -> operator\n";
-			statement.info = statement.info.substr(pos+1);
+			if(pos + 1 < statement.info.length())
+				statement.info = statement.info.substr(pos + 1);
+			else
+				break;
 			pos = statement.info.find_first_of(searchString);
 		}
 	} //else
