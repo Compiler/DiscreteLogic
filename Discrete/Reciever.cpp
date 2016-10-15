@@ -18,36 +18,39 @@ void Reciever::decipher(){
 	std::string searchString = "^v-";
 	std::size_t pos = statement.info.find_first_of(searchString);
 	std::vector<int> positions;
-
+	std::string tmp = statement.info;
 	while(pos != std::string::npos){
-		if(statement.info[pos] == '^'/*Logic::and*/){
+		if(pos < tmp.length() && tmp[pos] == '^'/*Logic::and*/){
 			std::cout << "Found ^ operator\n";
-			if(pos + 1 < statement.info.length())
-				statement.info = statement.info.substr(pos + 1);
+			if(pos + 1 < tmp.length())
+				tmp = tmp.substr(pos + 1);
 			else
 				break;
-			pos = statement.info.find_first_of(searchString);
+
+			pos = tmp.find_first_of(searchString);
 		}
-		if(statement.info[pos] == 'v' /*Logic::or*/){
+		if(pos < tmp.length() && tmp[pos] == 'v' /*Logic::or*/){
 			std::cout << "Found v operator\n";
-			if(pos + 1 < statement.info.length())
-				statement.info = statement.info.substr(pos + 1);
+			if(pos + 1 < tmp.length())
+				tmp = tmp.substr(pos + 1);
 			else
 				break;
-			pos = statement.info.find_first_of(searchString);
+			pos = tmp.find_first_of(searchString);
 		}
-		if(statement.info[pos] == '-'/*Logic::conditional*/){
+		if(pos < tmp.length() && tmp[pos] == '-'/*Logic::conditional*/){
 			std::cout << "Found -> operator\n";
-			if(pos + 1 < statement.info.length())
-				statement.info = statement.info.substr(pos + 1);
+			if(pos + 1 < tmp.length()){
+				tmp = tmp.substr(pos + 1);
+				
+			}
 			else
 				break;
-			pos = statement.info.find_first_of(searchString);
+			pos = tmp.find_first_of(searchString);
 		}
-	} //else
+	}
 	
 
-		std::cout << statement.info.substr(pos+1);
+		std::cout << tmp.substr(pos+1);
 
 }
 
