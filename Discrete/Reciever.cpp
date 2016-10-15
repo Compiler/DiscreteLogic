@@ -15,19 +15,30 @@ void Reciever::init(std::string info){
 
 
 void Reciever::decipher(){
-	std::size_t pos = statement.info.find_first_of(Logic::and);
-	if(pos != std::string::npos){
-		if(statement.info[pos] == Logic::and){
+	std::string searchString = "^v-";
+	std::size_t pos = statement.info.find_first_of(searchString);
+	std::vector<int> positions;
+
+	while(pos != std::string::npos){
+		if(statement.info[pos] == '^'/*Logic::and*/){
 			std::cout << "Found ^ operator\n";
+			statement.info = statement.info.substr(pos+1);
+			pos = statement.info.find_first_of(searchString);
 		}
-		if(statement.info[pos] == Logic::or){
+		if(statement.info[pos] == 'v' /*Logic::or*/){
 			std::cout << "Found v operator\n";
+			statement.info = statement.info.substr(pos+1);
+			pos = statement.info.find_first_of(searchString);
 		}
-		if(statement.info[pos] == Logic::conditional){
+		if(statement.info[pos] == '-'/*Logic::conditional*/){
 			std::cout << "Found -> operator\n";
+			statement.info = statement.info.substr(pos+1);
+			pos = statement.info.find_first_of(searchString);
 		}
-	} else
-		std::cout << "Couldn't find any logical operators";
+	} //else
+	
+
+		std::cout << statement.info.substr(pos+1);
 
 }
 

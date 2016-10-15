@@ -11,7 +11,7 @@ public:
 	void init(std::string info);
 
 
-	static const char conditional = '->';
+	static const char conditional = '-';
 	static const char and = '^';
 	static const char or = 'v';
 
