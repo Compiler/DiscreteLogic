@@ -1,4 +1,5 @@
 ﻿  Action.cpp
-c:\users\user\documents\visual studio 2015\projects\discrete\discrete\action.cpp(13): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\visual studio 2015\projects\discrete\discrete\action.cpp(17): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\visual studio 2015\projects\discrete\discrete\action.cpp(21): warning C4018: '<': signed/unsigned mismatch
   Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.exe
   Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.pdb (Partial PDB)
