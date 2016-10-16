@@ -64,5 +64,12 @@ void Reciever::decipher(){
 }
 
 
+Statement Reciever::getStatement(){
+	
+	return statement;
+
+}
+
+
 Reciever::~Reciever(){
 }

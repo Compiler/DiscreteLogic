@@ -2,6 +2,7 @@
 #include "iostream"
 #include "string"
 #include "Reciever.h"
+#include "Action.h"
 
 int main(){
 
@@ -10,6 +11,10 @@ int main(){
 	std::cin >> statement;
 	Reciever reciever;
 	reciever.init(statement);
+
+
+	Action a;
+	a.truthTable(reciever.getStatement());
 
 
 	//studder

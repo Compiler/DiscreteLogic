@@ -9,7 +9,7 @@ public:
 	Reciever();
 
 	void init(std::string info);
-
+	Statement getStatement();
 
 	static const char conditional = '-';
 	static const char and = '^';
