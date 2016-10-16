@@ -14,6 +14,7 @@ void Action::truthTable(Statement statement){
 	const unsigned n = statement.variables.size();
 	std::vector<std::vector<int> > truthTable(n+1, std::vector<int>(1 << n));
 	//first
+	//second
 	unsigned num_to_fill = 1U << (n - 1);
 	for(unsigned col = 0; col < n; ++col, num_to_fill >>= 1U){
 		for(unsigned row = num_to_fill; row < (1U << n); row += (num_to_fill * 2)){
