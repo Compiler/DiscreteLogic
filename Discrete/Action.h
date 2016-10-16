@@ -14,6 +14,9 @@ public:
 
 private:
 
+
+
+	
 	void drawHeader(Statement statement);
 	void drawLine(int count);
 	int amountOfValues;
