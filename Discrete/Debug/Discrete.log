@@ -1,5 +1,5 @@
 ﻿  Reciever.cpp
-c:\users\user\documents\visual studio 2015\projects\discrete\discrete\reciever.cpp(55): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\documents\visual studio 2015\projects\discrete\discrete\reciever.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\visual studio 2015\projects\discrete\discrete\reciever.cpp(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\visual studio 2015\projects\discrete\discrete\reciever.cpp(60): warning C4018: '<': signed/unsigned mismatch
   Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.exe
   Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.pdb (Partial PDB)

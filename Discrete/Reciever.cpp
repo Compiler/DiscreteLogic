@@ -21,11 +21,12 @@ void Reciever::decipher(){
 	std::string tmp = statement.info;
 
 	statement.addVariable(statement.info.substr(0, 1).c_str()[0]);
-	statement.addVariable(statement.info.c_str()[statement.info.length() - 1]);
+	//statement.addVariable(statement.info.c_str()[statement.info.length() - 1]);
 	while(pos != std::string::npos){
 		if(pos < tmp.length() && tmp[pos] == Logic::and){
 			std::cout << "Found ^ operator\n";
 			statement.addOperator(Logic::and);
+			statement.addVariable(tmp[pos+1]);
 			if(pos + 1 < tmp.length()){
 				tmp = tmp.substr(pos + 1);
 				pos = tmp.find_first_of(searchString);
@@ -34,6 +35,7 @@ void Reciever::decipher(){
 		if(pos < tmp.length() && tmp[pos] == Logic::or){
 			std::cout << "Found v operator\n";
 			statement.addOperator(Logic:: or );
+			statement.addVariable(tmp[pos + 1]);
 			if(pos + 1 < tmp.length()){
 				tmp = tmp.substr(pos + 1);
 				pos = tmp.find_first_of(searchString);
@@ -42,7 +44,7 @@ void Reciever::decipher(){
 		if(pos < tmp.length() && tmp[pos] == Logic::conditional){
 			std::cout << "Found -> operator\n";
 			statement.addOperator(Logic::conditional);
-			
+			statement.addVariable(tmp[pos + 1]);
 			if(pos + 1 < tmp.length()){
 				tmp = tmp.substr(pos + 1);
 				pos = tmp.find_first_of(searchString);
