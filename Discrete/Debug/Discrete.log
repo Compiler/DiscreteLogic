@@ -1,3 +1,3 @@
 ﻿  Reciever.cpp
-  Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.exe
-  Discrete.vcxproj -> C:\Users\User\Documents\Visual Studio 2015\Projects\Discrete\Debug\Discrete.pdb (Partial PDB)
+c:\users\user\documents\visual studio 2015\projects\discrete\discrete\reciever.cpp(32): error C2039: 'or': is not a member of 'Logic'
+  c:\users\user\documents\visual studio 2015\projects\discrete\discrete\logic.h(2): note: see declaration of 'Logic'

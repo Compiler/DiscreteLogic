@@ -20,7 +20,7 @@ void Reciever::decipher(){
 	std::vector<int> positions;
 	std::string tmp = statement.info;
 	while(pos != std::string::npos){
-		if(pos < tmp.length() && tmp[pos] == '^'/*Logic::and*/){
+		if(pos < tmp.length() && tmp[pos] == Logic::and){
 			std::cout << "Found ^ operator\n";
 			if(pos + 1 < tmp.length())
 				tmp = tmp.substr(pos + 1);
@@ -29,7 +29,7 @@ void Reciever::decipher(){
 
 			pos = tmp.find_first_of(searchString);
 		}
-		if(pos < tmp.length() && tmp[pos] == 'v' /*Logic::or*/){
+		if(pos < tmp.length() && tmp[pos] == Logic::or){
 			std::cout << "Found v operator\n";
 			if(pos + 1 < tmp.length())
 				tmp = tmp.substr(pos + 1);
@@ -37,7 +37,7 @@ void Reciever::decipher(){
 				break;
 			pos = tmp.find_first_of(searchString);
 		}
-		if(pos < tmp.length() && tmp[pos] == '-'/*Logic::conditional*/){
+		if(pos < tmp.length() && tmp[pos] == Logic::conditional){
 			std::cout << "Found -> operator\n";
 			if(pos + 1 < tmp.length()){
 				tmp = tmp.substr(pos + 1);
