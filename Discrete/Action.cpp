@@ -11,53 +11,36 @@ void Action::truthTable(Statement statement){
 	drawHeader(statement);
 
 
+	const unsigned n = statement.variables.size();
+	std::vector<std::vector<int> > output(n, std::vector<int>(1 << n));
 
-	amountOfValues = (int)pow(2, statement.variables.size());
-
-
-	bool **tableInfo;
-
-	// Allocate memory			height
-	tableInfo = new bool*[amountOfValues];
-	for(int i = 0; i < amountOfValues; ++i)
-		tableInfo[i] = new bool[statement.variables.size() + 1];
-	int count = 1;
-	for(int k = 0; k <= statement.variables.size(); k++){
-		count *= 2;
-		for(int i = 0; i < amountOfValues; i++){
-			if(i < amountOfValues / count)
-				tableInfo[k][i] = true;
-			else
-				tableInfo[k][i] = false;
+	unsigned num_to_fill = 1U << (n - 1);
+	for(unsigned col = 0; col < n; ++col, num_to_fill >>= 1U){
+		for(unsigned row = num_to_fill; row < (1U << n); row += (num_to_fill * 2)){
+			std::fill_n(&output[col][row], num_to_fill, 1);
 		}
 	}
-
-
 	std::cout << "\n\t";
-	for(int i = 0; i < amountOfValues; i++){
-		for(int k = 0; k <= statement.variables.size(); k++){
-			std::cout << "| ";
-			if(tableInfo[k][i])
-				std::cout << "T ";
-			else
-				std::cout << "F ";
 
+
+
+
+
+
+
+
+	for(unsigned x = 0; x < (1 << n); ++x){
+		for(unsigned y = 0; y < n; ++y){
+			if(output[y][x] == 1)
+				std::cout << "| F ";
+			else
+				std::cout << "| T ";
 		}
 		std::cout << "\n\t";
 	}
 
 
-
-
-
-
-
-	char c;
-	std::cin >> c;
-	// De-Allocate memory to prevent memory leak
-	for(int i = 0; i < amountOfValues; i++)
-		delete[] tableInfo[i];
-	delete[] tableInfo;
+	amountOfValues = (int)pow(2, statement.variables.size());
 
 
 }
